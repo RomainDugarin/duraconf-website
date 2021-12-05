@@ -15,6 +15,12 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/css/ol.css"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/build/ol.js"></script>
     <link rel="stylesheet" type="text/css" href="index.css" />
 
     <title>Document</title>
@@ -99,8 +105,74 @@
         </li>
       </ul>
     </section>
-    <section id="contact"></section>
+    <section id="contact">
+      <div class="column contact-column">
+        <div class="contact-details">
+          <h2>Contact</h2>
+          <div class="contact-info">
+            <img src="images/marker.svg" alt="" />
+            <span>
+              80 avenue Edmund Halley,<br />
+              76800 Saint-Étienne-du-Rouvray
+            </span>
+          </div>
+          <div class="contact-info">
+            <img src="images/mail.svg" alt="" />
+            <span>contact@cesi-conference.fr</span>
+          </div>
+          <hr />
+          <div class="social">
+            <a href="">
+              <img src="images/youtube.svg" alt="" />
+            </a>
+            <a href="">
+              <img src="images/facebook.svg" alt="" />
+            </a>
+            <a href="">
+              <img src="images/linkedin.svg" alt="" />
+            </a>
+            <a href="">
+              <img src="images/twitter.svg" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="column map-column" id="map"></div>
+    </section>
     <footer></footer>
     <script src="bundle.js"></script>
+    <script type="text/javascript">
+      const map = new ol.Map({
+        target: "map",
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM(),
+          }),
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([1.075156398169453, 49.382532077923564]),
+          zoom: 14,
+        }),
+      });
+
+      var markers = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        style: new ol.style.Style({
+          image: new ol.style.Icon({
+            anchor: [0.5, 1],
+            src: "/images/marker.svg",
+            scale: 1.5,
+          }),
+        }),
+      });
+      map.addLayer(markers);
+
+      var marker = new ol.Feature(
+        new ol.geom.Point(
+          ol.proj.fromLonLat([1.075156398169453, 49.382532077923564])
+        )
+      );
+      markers.getSource().addFeature(marker);
+    </script>
   </body>
 </html>
