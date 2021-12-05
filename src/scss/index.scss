@@ -17,11 +17,26 @@ section {
   padding: 7.5rem 3rem;
 
   ul {
+    width: 75%;
+
     li {
       position: relative;
       border-left: 3px solid $secondary;
       padding-left: 3rem;
       padding-bottom: 3rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -2px;
+        top: 0;
+        transform: translateX(-50%);
+        background: white;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        border: 3px solid $secondary;
+      }
 
       &:last-child {
         padding-bottom: 0;
@@ -30,20 +45,8 @@ section {
 
       .conference {
         display: flex;
-        align-items: center;
+        justify-content: space-between;
         height: fit-content;
-
-        &::before {
-          content: "";
-          position: absolute;
-          left: calc(-1.5rem - 3px);
-          top: 0;
-          background: white;
-          width: 3rem;
-          height: 3rem;
-          border-radius: 50%;
-          border: 3px solid $secondary;
-        }
 
         .conference-details {
           display: flex;
@@ -58,6 +61,8 @@ section {
 
         .conference-description {
           margin-left: 5rem;
+          min-width: 60%;
+          width: 60%;
         }
       }
     }
@@ -138,24 +143,25 @@ footer {
 
   #schedule {
     ul {
+      width: auto;
       margin-left: 1rem;
 
       li {
         padding-left: 2rem;
 
+        &::before {
+          width: 2rem;
+          height: 2rem;
+        }
+
         .conference {
           flex-direction: column;
           align-items: flex-start;
 
-          &::before {
-            width: 2rem;
-            height: 2rem;
-            left: calc(-1rem - 4px);
-          }
-
           .conference-description {
             margin-left: 0rem;
             margin-top: 1rem;
+            width: 90%;
           }
         }
       }
