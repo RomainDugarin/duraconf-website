@@ -1,6 +1,10 @@
 @import "variables";
 @import "fonts";
 
+html {
+  scroll-behavior: smooth;
+}
+
 section {
   display: flex;
   flex-direction: column;
@@ -17,11 +21,14 @@ section {
   padding: 0;
   height: 100vh;
   background: url("images/header.png");
+  background-size: cover;
   justify-content: center;
 
   .top-bar {
     position: absolute;
     top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 80%;
     display: flex;
     justify-content: space-between;
@@ -249,8 +256,82 @@ footer {
 }
 
 @media screen and (max-width: $desktop) {
+  * {
+    text-align: center;
+  }
+
   section {
     padding: 7.55rem 1rem !important;
+  }
+
+  #header {
+    display: block;
+    height: fit-content;
+
+    .top-bar {
+      justify-content: center;
+
+      nav {
+        display: none;
+      }
+    }
+
+    .header-content {
+      width: 100%;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        width: 100%;
+      }
+
+      .header-details {
+        flex-direction: column;
+
+        .header-info {
+          flex-direction: column;
+          justify-content: center;
+          margin: 1rem 0;
+
+          img {
+            margin-right: 0;
+            margin-bottom: 1rem;
+          }
+        }
+      }
+
+      a {
+        margin: auto;
+      }
+    }
+  }
+
+  #about {
+    padding-bottom: 0 !important;
+
+    .container {
+      .pictures {
+        display: none;
+      }
+
+      .description {
+        width: 100%;
+
+        p {
+          margin: 2rem 0;
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
   }
 
   #schedule {
