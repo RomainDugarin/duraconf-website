@@ -11,32 +11,80 @@ section {
     margin-bottom: 5rem;
     font-weight: bold;
   }
-
-  h1 {
-    color: white;
-    font-size: 3rem;
-    position: absolute;
-    left: 16rem;
-    top: 16rem;
-    text-transform: uppercase; 
-    line-height: 3rem;
-    font-weight: bold;
-  }
 }
 
 #header {
-  position: absolute;
-
-  .background {
-    
-  }
+  padding: 0;
+  height: 100vh;
+  background: url("images/header.png");
+  justify-content: center;
 
   .top-bar {
-    
+    position: absolute;
+    top: 10px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      color: white;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin: 0 0.5rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
-}
+  .header-content {
+    width: 80%;
+    color: $white;
 
+    p {
+      width: 60%;
+      font-size: 1.2rem;
+      margin: 2rem 0; 
+    }
+
+    .header-details {
+      display: flex;
+      margin: 2rem 0 ;
+
+      .header-info {
+        display: flex;
+        align-items: center;
+        margin-right: 4rem;
+
+        img {
+          margin-right: 1rem;
+        }
+
+        &:first-child {
+          div {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+      }
+    }
+
+    a {
+      background: $primary;
+      padding: 0.8rem 3rem;
+      border-radius: 30px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 2rem;
+      display: block;
+      width: fit-content;
+      
+    }
+  }
+}
 
 #schedule {
   padding: 7.5rem 3rem;
