@@ -46,12 +46,12 @@ section {
     p {
       width: 60%;
       font-size: 1.2rem;
-      margin: 2rem 0; 
+      margin: 2rem 0;
     }
 
     .header-details {
       display: flex;
-      margin: 2rem 0 ;
+      margin: 2rem 0;
 
       .header-info {
         display: flex;
@@ -81,7 +81,46 @@ section {
       margin-top: 2rem;
       display: block;
       width: fit-content;
-      
+    }
+  }
+}
+
+#about {
+  padding-bottom: 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+
+    .pictures {
+      width: 40%;
+      position: relative;
+
+      img {
+        position: absolute;
+        border-radius: 30px;
+        width: 75%;
+        height: 60%;
+        object-fit: cover;
+
+        &.foreground-picture {
+          right: 0;
+          bottom: 0;
+        }
+      }
+    }
+
+    .description {
+      width: 50%;
+
+      p {
+        margin: 2rem;
+      }
+
+      span {
+        color: $primary;
+      }
     }
   }
 }
